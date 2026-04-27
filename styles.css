@@ -1,41 +1,75 @@
-:root { --bg:#f6f7fb; --card:#fff; --ink:#162033; --muted:#657085; --brand:#2563eb; --line:#e4e7ef; --danger:#b42318; }
-* { box-sizing:border-box; }
-body { margin:0; font-family:Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial, sans-serif; background:var(--bg); color:var(--ink); }
-main { max-width:1480px; margin:0 auto; padding:28px; }
-h1 { margin:0 0 6px; font-size:28px; }
-.muted { color:var(--muted); margin:0; }
-.card { background:var(--card); border:1px solid var(--line); border-radius:18px; box-shadow:0 10px 30px rgba(21,31,54,.06); }
-.login-card { max-width:430px; margin:10vh auto; padding:30px; }
-label { display:grid; gap:7px; font-weight:650; font-size:13px; }
-input, select, textarea { width:100%; border:1px solid var(--line); border-radius:12px; padding:10px 12px; font:inherit; background:#fff; }
-textarea { min-height:70px; resize:vertical; }
-button { border:0; border-radius:12px; padding:10px 14px; font-weight:750; cursor:pointer; color:#fff; background:var(--brand); }
-button.ghost { color:var(--ink); background:#edf1f7; }
-button:disabled { opacity:.55; cursor:not-allowed; }
-.error { color:var(--danger); min-height:20px; }
-.hidden { display:none !important; }
-#loginForm { display:grid; gap:16px; margin-top:22px; }
-.topbar { display:flex; align-items:center; justify-content:space-between; gap:18px; margin-bottom:18px; }
-.userbox { display:flex; gap:12px; align-items:center; }
-.stats { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:14px; margin-bottom:16px; }
-.stat { background:#fff; border:1px solid var(--line); border-radius:16px; padding:18px; }
-.stat strong { display:block; font-size:28px; }
-.stat span { color:var(--muted); font-size:13px; }
-.toolbar { display:flex; justify-content:space-between; gap:12px; padding:14px; margin-bottom:16px; }
-.toolbar input { max-width:420px; }
-.table-card { padding:0; overflow:hidden; }
-.table-wrap { overflow:auto; max-height:70vh; }
-table { width:100%; border-collapse:separate; border-spacing:0; min-width:1250px; }
-th, td { border-bottom:1px solid var(--line); padding:10px; vertical-align:top; font-size:13px; }
-th { position:sticky; top:0; z-index:2; background:#172036; color:#fff; text-align:left; }
-td textarea { min-height:42px; font-size:12px; }
-td:nth-child(3) textarea { min-width:310px; }
-.attachments { display:grid; gap:7px; }
-.attachments a { color:var(--brand); text-decoration:none; font-size:12px; }
-.file-row { display:flex; gap:6px; align-items:center; }
-.file-row input { padding:8px; }
-.badge { display:inline-block; border-radius:999px; padding:3px 8px; background:#eef2ff; color:#3730a3; font-size:12px; margin-bottom:6px; }
-dialog { border:0; border-radius:18px; padding:0; width:min(560px, 92vw); box-shadow:0 30px 100px rgba(0,0,0,.25); }
-.dialog-form { display:grid; gap:14px; padding:24px; }
-menu { display:flex; justify-content:flex-end; gap:10px; padding:0; margin:8px 0 0; }
-@media (max-width:900px){ main{padding:18px}.stats{grid-template-columns:repeat(2,1fr)}.topbar{align-items:flex-start;flex-direction:column}.toolbar{flex-direction:column}.toolbar input{max-width:none} }
+body {
+font-family: Arial, sans-serif;
+background: linear-gradient(to right, #667eea, #764ba2);
+margin: 0;
+padding: 0;
+}
+
+/* Login */
+.login-card {
+width: 320px;
+margin: 120px auto;
+padding: 30px;
+background: white;
+border-radius: 12px;
+text-align: center;
+}
+
+input {
+width: 100%;
+padding: 10px;
+margin: 10px 0;
+}
+
+button {
+padding: 10px;
+width: 100%;
+background: #667eea;
+color: white;
+border: none;
+cursor: pointer;
+}
+
+.error {
+color: red;
+}
+
+/* Dashboard */
+.hidden {
+display: none;
+}
+
+.topbar {
+display: flex;
+justify-content: space-between;
+padding: 20px;
+background: white;
+}
+
+.stats {
+display: flex;
+gap: 20px;
+padding: 20px;
+}
+
+.stat {
+background: white;
+padding: 15px;
+border-radius: 8px;
+}
+
+.table-card {
+margin: 20px;
+background: white;
+padding: 20px;
+}
+
+table {
+width: 100%;
+border-collapse: collapse;
+}
+
+th, td {
+border: 1px solid #ddd;
+padding: 8px;
+}
