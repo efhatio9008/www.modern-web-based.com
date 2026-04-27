@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>MEPSB</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div id="login">
+  <h2>Login</h2>
+  <input id="username" placeholder="Username">
+  <input id="password" type="password" placeholder="Password">
+  <button onclick="login()">Login</button>
+</div>
+
+<div id="app" style="display:none;">
+  <h2>Project Dashboard</h2>
+
+  <input id="desc" placeholder="Project">
+  <input id="status" placeholder="Status">
+  <input id="remarks" placeholder="Remarks">
+  <button onclick="addProject()">Add</button>
+
+  <table border="1">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Project</th>
+        <th>Status</th>
+        <th>Remarks</th>
+        <th>SI Report</th>
+        <th>Action</th>
+    </tr>
+    </thead>
+    <tbody id="table"></tbody>
+  </table>
+</div>
+
+<script src="app.js"></script>
+
+</body>
+</html>
