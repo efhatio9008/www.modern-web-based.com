@@ -1,0 +1,186 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #f4f6f8;
+  margin: 0;
+}
+
+#app {
+  padding: 20px;
+}
+
+/* Buttons area */
+.top-buttons,
+.add-box {
+  margin-bottom: 12px;
+}
+
+#app input {
+  margin: 5px;
+}
+
+/* Table wrapper handles horizontal scroll */
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+/* Main table */
+table {
+  border-collapse: collapse;
+  width: max-content;
+  min-width: 100%;
+  background: white;
+}
+
+/* Table cells */
+th,
+td {
+  border: 1px solid #ddd;
+  padding: 6px;
+  text-align: left;
+  white-space: nowrap;
+}
+
+/* Header */
+th {
+  background: #f0f0f0;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+/* Normal cells */
+td {
+  vertical-align: top;
+}
+
+/* First column */
+td:first-child,
+th:first-child {
+  width: 40px;
+  text-align: center;
+}
+
+/* Hover effect */
+tr:hover {
+  background: #f9f9f9;
+}
+
+/* Editable cells */
+td[contenteditable="true"] {
+  cursor: text;
+}
+
+td[contenteditable="true"]:focus {
+  outline: 2px solid #007bff;
+  background: #eef6ff;
+}
+
+/* Login page */
+#login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+/* Login card */
+.login-box {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#login h2 {
+  margin-bottom: 20px;
+}
+
+#login input {
+  width: 250px;
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+#login button {
+  margin-top: 10px;
+  width: 100%;
+  padding: 10px 20px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#login button:hover {
+  background: #0056b3;
+}
+
+/* File upload area */
+.file-box {
+  margin-bottom: 5px;
+}
+
+.upload-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
+.upload-box input {
+  font-size: 12px;
+  margin: 0;
+}
+
+.upload-box button {
+  padding: 2px 6px;
+  font-size: 12px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  width: auto;
+  cursor: pointer;
+}
+
+.upload-box button:hover {
+  background: #0056b3;
+}
+
+.delete-file-btn {
+  margin-left: 5px;
+  padding: 2px 5px;
+  font-size: 11px;
+  background: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.delete-file-btn:hover {
+  background: #a71d2a;
+}
+
+td, th {
+  border: 1px solid #ddd;
+  padding: 6px;
+  text-align: center;
+  white-space: normal; /* 允许换行 */
+  word-wrap: break-word; /* 防止溢出 */
+  max-width: 30ch; /* 限制宽度，大约 30 个字 */
+}
+
+.upload-box input {
+  font-size: 12px;
+  margin: 0;
+  text-align: center;
+}
