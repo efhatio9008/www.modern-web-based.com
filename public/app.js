@@ -620,8 +620,8 @@ function exportTimelineExcel() {
 
   csv.push(headers.join(","));
 
-  // 🔥 先按 ID 排序（重点）
-  const sortedData = [...timelineData].sort((a, b) => a.id - b.id);
+  // ✅ 跟 Timeline 画面一样：新的 row 在上面
+  const sortedData = [...timelineData].sort((a, b) => b.id - a.id);
 
   sortedData.forEach(row => {
     const rowData = [
