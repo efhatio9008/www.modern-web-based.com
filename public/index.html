@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>MEPSB</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div id="login">
+  <div class="login-box">
+    <h2>Login</h2>
+    <input id="username" placeholder="Username">
+    <input id="password" type="password" placeholder="Password">
+    <button onclick="login()">Login</button>
+  </div>
+</div>
+
+<div id="app" style="display:none;">
+
+  <div class="menu-dropdown">
+    <button onclick="toggleMenu()">☰ Menu ▼</button>
+
+    <div id="menuBox" class="menu-box">
+      <div onclick="goDashboard()">Dashboard</div>
+      <div onclick="goTimeline()">Timeline</div>
+      <div onclick="goPipeline()">PIPE-IN LINER</div>
+      <div onclick="goDeployment()">Deployment</div>
+    </div>
+  </div>
+
+  <div id="dashboardPage">
+    <h2>Project Dashboard</h2>
+
+    <div class="top-buttons">
+      <button onclick="zoomIn()">Zoom +</button>
+      <button onclick="zoomOut()">Zoom -</button>
+      <button onclick="logout()">Logout</button>
+      <button onclick="exportExcel()">Export</button>
+      <button onclick="refreshDashboard()">Refresh</button>
+      <button onclick="toggleSelect('dashboard')">Select</button>
+      <button onclick="bulkDelete('dashboard')">Delete Selected</button>
+      <button onclick="bulkAdd('dashboard')">Add Multiple</button>
+    </div>
+
+    <div class="search-box">
+      <input id="searchId" type="number" placeholder="ID">
+      <button onclick="searchById()">Search</button>
+      <button onclick="clearSearch()">Clear</button>
+    </div>
+
+    <div class="add-box">
+      <input id="desc" placeholder="Project">
+      <input id="status" placeholder="Status">
+      <input id="remarks" placeholder="Remarks">
+      <button onclick="addProject()">Add</button>
+      <input 
+        id="dashboardTitle"
+        class="project-title-input"
+        placeholder="Title Project"
+        oninput="savePageTitle('dashboard')"
+      />
+    </div>
+
+    <div class="table-wrapper">
+      <table border="1">
+        <thead>
+          <tr>
+            <th class="select-col dashboard-select-col"></th>
+            <th>ID</th>
+            <th>Project</th>
+            <th>Status</th>
+            <th>Tendering</th>
+            <th>BG</th>
+            <th>CWR/PO</th>
+            <th>Workscope</th>
+            <th>SI Report</th>
+            <th>Cost</th>
+            <th>CCC</th>
+            <th>Procurement</th>
+            <th>Delivery</th>
+            <th>FCB</th>
+            <th>Mob</th>
+            <th>Handover</th>
+            <th>Demob</th>
+            <th>Close Out</th>
+            <th>Remarks</th>
+          </tr>
+        </thead>
+        <tbody id="table"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <div id="timelinePage" style="display:none;">
+    <h2>Timeline</h2>
+
+    <div class="timeline-tools">
+      <label>Year:</label>
+      <select id="timelineYear" onchange="loadTimeline()">
+        <option value="2026">2026</option>
+        <option value="2027">2027</option>
+        <option value="2028">2028</option>
+        <option value="2029">2029</option>
+        <option value="2030">2030</option>
+        <option value="2031">2031</option>
+        <option value="2032">2032</option>
+        <option value="2033">2033</option>
+        <option value="2034">2034</option>
+        <option value="2035">2035</option>
+        <option value="2036">2036</option>
+      </select>
+
+      <button onclick="addTimelineRow()">Add Timeline</button>
+      <button onclick="exportTimelineExcel()">Export Timeline</button>
+      <button onclick="refreshTimeline()">Refresh</button>
+      <button onclick="toggleSelect('timeline')">Select</button>
+      <button onclick="bulkDelete('timeline')">Delete Selected</button>
+      <button onclick="bulkAdd('timeline')">Add Multiple</button>
+
+      <input 
+        id="timelineTitle"
+        class="project-title-input"
+        placeholder="Title Project"
+        oninput="savePageTitle('timeline')"
+      />
+    </div>
+
+    <div class="table-wrapper">
+      <table border="1">
+        <thead>
+          <tr>
+            <th class="select-col timeline-select-col"></th>
+            <th>Jan</th>
+            <th>Feb</th>
+            <th>Mar</th>
+            <th>Apr</th>
+            <th>May</th>
+            <th>Jun</th>
+            <th>Jul</th>
+            <th>Aug</th>
+            <th>Sep</th>
+            <th>Oct</th>
+            <th>Nov</th>
+            <th>Dec</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody id="timelineTable"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <div id="pipelinePage" style="display:none;">
+    <h2>PIPE-IN LINER</h2>
+
+    <div class="search-box">
+      <input id="pipelineSearchId" type="number" placeholder="ID">
+      <button onclick="searchPipeline()">Search</button>
+      <button onclick="clearPipelineSearch()">Clear</button>
+    </div>
+
+    <div class="add-box">
+      <input id="pl-desc" placeholder="Project">
+      <input id="pl-status" placeholder="Status">
+      <input id="pl-remarks" placeholder="Remarks">
+      <button onclick="addPipeline()">Add</button>
+      <button onclick="exportPipeline()">Export</button>
+      <button onclick="refreshPipeline()">Refresh</button>
+      <button onclick="toggleSelect('pipeline')">Select</button>
+      <button onclick="bulkDelete('pipeline')">Delete Selected</button>
+      <button onclick="bulkAdd('pipeline')">Add Multiple</button>
+
+      <input 
+        id="pipelineTitle"
+        class="project-title-input"
+        placeholder="Title Project"
+        oninput="savePageTitle('pipeline')"
+      /> 
+    </div>
+
+    <div class="table-wrapper">
+      <table border="1">
+        <thead>
+          <tr>
+            <th class="select-col pipeline-select-col"></th>
+            <th>No.</th>
+            <th>Project Description</th>
+            <th>Status Complete</th>
+            <th>Presentation to Client</th>
+            <th>Commercial Proposal</th>
+            <th>Technical Proposal</th>
+            <th>Site Visit</th>
+            <th>Received Orders</th>
+            <th>Issue PO</th>
+            <th>Check Transport/Shipment</th>
+            <th>Delivery Lead Time</th>
+            <th>ETB</th>
+            <th>ETA</th>
+            <th>Transport to Site</th>
+            <th>DO Acceptance</th>
+            <th>Project Installation Start</th>
+            <th>Project End</th>
+            <th>Remarks</th>
+          </tr>
+        </thead>
+        <tbody id="pipelineTable"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <div id="deploymentPage" style="display:none;">
+    <h2>Deployment</h2>
+
+    <div class="search-box">
+    <input id="deploymentSearchId" type="number" placeholder="ID">
+    <button onclick="searchDeployment()">Search</button>
+    <button onclick="clearDeploymentSearch()">Clear</button>
+  </div>
+
+    <div class="add-box">
+      <button onclick="addDeployment()">Add</button>
+      <button onclick="exportDeployment()">Export</button>
+      <button onclick="refreshDeployment()">Refresh</button>
+      <button onclick="toggleSelect('deployment')">Select</button>
+      <button onclick="bulkDelete('deployment')">Delete Selected</button>
+      <button onclick="bulkAdd('deployment')">Add Multiple</button>
+
+      <input 
+        id="deploymentTitle"
+        class="project-title-input"
+        placeholder="Deployment Type"
+        oninput="savePageTitle('deployment')"
+      />
+    </div>
+
+    <div class="table-wrapper">
+      <table border="1">
+        <thead>
+          <tr>
+            <th class="select-col deployment-select-col"></th>
+            <th>No.</th>
+            <th>Deployment Type</th>
+            <th>Status</th>
+            <th>Date Start</th>
+            <th>Date Complete</th>
+            <th>Remarks</th>
+          </tr>
+        </thead>
+        <tbody id="deploymentTable"></tbody>
+      </table>
+    </div>
+  </div>
+
+</div>
+
+<script src="app.js"></script>
+
+</body>
+</html>
