@@ -1,1 +1,0 @@
-function goActivityLogs(){showOnlyPage('activityPage');renderActivityLogs();}
