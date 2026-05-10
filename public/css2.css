@@ -1,0 +1,80 @@
+/* =========================================================
+   Login Activity Page - Extension CSS
+========================================================= */
+
+.activity-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+}
+
+.activity-toolbar button {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 5px;
+  background: #007bff;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.activity-toolbar button:hover {
+  background: #0056b3;
+}
+
+.activity-note {
+  color: #666;
+  font-size: 12px;
+}
+
+.activity-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.activity-table {
+  width: 100%;
+  min-width: 920px;
+  background: #ffffff;
+  border-collapse: collapse;
+}
+
+.activity-table th,
+.activity-table td {
+  padding: 8px 10px;
+  text-align: center;
+  vertical-align: top;
+  border: 1px solid #ddd;
+}
+
+.activity-table th {
+  background: #f0f0f0;
+  font-weight: bold;
+}
+
+.activity-modules-cell {
+  text-align: left !important;
+  white-space: normal;
+  word-break: break-word;
+}
+
+body.dark-mode .activity-note {
+  color: #cbd5e1;
+}
+
+body.dark-mode .activity-table {
+  background: #111827;
+  color: #e5e7eb;
+  border-color: #334155;
+}
+
+body.dark-mode .activity-table th {
+  background: #1f2937;
+  color: #f9fafb;
+  border-color: #374151;
+}
+
+body.dark-mode .activity-table td {
+  border-color: #374151;
+}
